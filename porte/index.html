@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ma porte laisse passer le bruit ? — BâtiVrai</title>
+<meta name="description" content="3 questions, 30 secondes : ce que tu peux tester gratuitement, ce qui vaut un achat, et ce qu'il ne faut surtout pas boucher.">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#F2B705">
+<style>
+:root{--yellow:#F2B705;--ink:#2B2D31;--orange:#E8590C;--paper:#f8f6ee;--muted:#565853;--line:#dcdcd3;--card:#fff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:inherit}
+.wrap{width:min(680px,calc(100% - 32px));margin:auto}
+header{display:flex;justify-content:space-between;align-items:center;padding:18px 0;border-bottom:1px solid var(--line)}
+.brand{font-weight:900;font-size:24px;letter-spacing:-1px;text-decoration:none}.brand span{color:var(--orange)}
+.pill{font-size:12px;font-weight:800;letter-spacing:1px;text-transform:uppercase;background:var(--yellow);padding:4px 9px;border-radius:3px}
+h1{font-size:clamp(30px,7vw,44px);line-height:1.08;letter-spacing:-1.5px;margin:28px 0 12px}
+h1 em{font-style:normal;background:var(--yellow);padding:0 4px}
+.lead{color:var(--muted);margin:0 0 22px}
+fieldset{border:0;margin:0 0 18px;padding:18px;background:var(--card);border:2px solid var(--ink);border-radius:6px}
+legend{font-weight:800;font-size:19px;padding:0 6px;margin-left:-6px}
+.hint{font-size:14px;color:var(--muted);margin:2px 0 12px}
+.opt{display:flex;gap:12px;align-items:flex-start;padding:12px;border:1px solid var(--line);border-radius:5px;margin:8px 0;cursor:pointer;min-height:48px}
+.opt:has(input:checked){border-color:var(--ink);background:#fff6d6}
+.opt input{width:22px;height:22px;margin:2px 0 0;accent-color:var(--ink);flex:none}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:12px 22px;border:2px solid var(--ink);background:var(--ink);color:#fff;font:inherit;font-weight:750;text-decoration:none;border-radius:4px;cursor:pointer;width:100%;text-align:center}
+.btn.light{background:transparent;color:var(--ink)}
+.btn.yellow{background:var(--yellow);color:var(--ink)}
+.err{color:var(--orange);font-weight:700;min-height:1.5em;margin:8px 0}
+#resultat{margin:26px 0 10px}
+.bloc{background:var(--card);border-left:6px solid var(--ink);padding:16px 18px;margin:0 0 16px;border-radius:0 6px 6px 0}
+.bloc h2{font-size:20px;margin:0 0 8px;letter-spacing:-.3px}
+.bloc.free{border-color:#2f8a3b}.bloc.buy{border-color:var(--yellow)}.bloc.stop{border-color:var(--orange)}.bloc.mail{border-color:var(--yellow);background:#fff6d6}
+.bloc ul,.bloc ol{margin:6px 0 0;padding-left:22px}.bloc li{margin:6px 0}
+.prix{font-weight:800}
+.small{font-size:13px;color:var(--muted)}
+.row{display:grid;gap:10px;margin-top:12px}
+footer{border-top:1px solid var(--line);margin-top:30px;padding:18px 0 40px;font-size:13px;color:var(--muted)}
+footer p{margin:6px 0;overflow-wrap:anywhere}
+@media print{header,form,.row,.mail{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header><a class="brand" href="#">Bâti<span>Vrai</span></a><span class="pill">30 secondes</span></header>
+
+<h1>Ma porte laisse <em>passer le bruit</em>&nbsp;?</h1>
+<p class="lead">3 questions sur ta situation. Tu repars avec ce que tu peux tester gratuitement, ce qui vaut éventuellement un petit achat, et ce qu'il ne faut surtout pas boucher.</p>
+
+<form id="f" novalidate>
+<fieldset>
+<legend>1. Ta porte, c'est plutôt…</legend>
+<p class="hint">Toque doucement au milieu : creux et léger, ou plein et lourd ?</p>
+<label class="opt"><input type="radio" name="porte" value="creuse"> Légère, elle sonne creux</label>
+<label class="opt"><input type="radio" name="porte" value="pleine"> Lourde, elle sonne plein</label>
+<label class="opt"><input type="radio" name="porte" value="vitree"> Avec une partie vitrée</label>
+<label class="opt"><input type="radio" name="porte" value="nsp"> Je ne sais pas</label>
+</fieldset>
+
+<fieldset>
+<legend>2. Porte fermée, lumière allumée de l'autre côté…</legend>
+<p class="hint">Éteins chez toi et regarde le pourtour de la porte.</p>
+<label class="opt"><input type="radio" name="jour" value="cotes"> Je vois de la lumière sur les côtés ou en haut</label>
+<label class="opt"><input type="radio" name="jour" value="dessous"> Seulement en dessous</label>
+<label class="opt"><input type="radio" name="jour" value="aucun"> Aucune lumière nulle part</label>
+</fieldset>
+
+<fieldset>
+<legend>3. Le bruit vient…</legend>
+<label class="opt"><input type="radio" name="source" value="piece"> D'une autre pièce de chez moi (télé, voix)</label>
+<label class="opt"><input type="radio" name="source" value="palier"> Du couloir ou du palier de l'immeuble (porte d'entrée)</label>
+<label class="opt"><input type="radio" name="source" value="nsp"> Je ne sais pas trop d'où</label>
+</fieldset>
+
+<p class="err" id="err" role="alert"></p>
+<button class="btn" type="submit">Voir mon plan</button>
+</form>
+
+<section id="resultat" hidden aria-live="polite"></section>
+
+<footer>
+<p><b>Ce que cet outil n'est pas :</b> une mesure acoustique ni un diagnostic du bâtiment. Il t'aide à observer avant d'acheter ou de faire des travaux. Aucun résultat n'est garanti.</p>
+<p>Aucune donnée n'est enregistrée sur cette page. Aucun lien de cette page n'est un lien affilié.</p>
+<p>Sources : <a href="https://agirpourlatransition.ademe.fr/particuliers/proteger-sante/proteger-bruit/isolation-phonique-reduire-nuisances-sonores">ADEME, isolation phonique</a> ·
+<a href="https://agirpourlatransition.ademe.fr/particuliers/proteger-sante/eviter-polluants/respirer-air-sain-chez-soi">ADEME, respirer un air sain chez soi (préserver l'espace sous les portes)</a> ·
+<a href="https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000862344/">arrêté du 24 mars 1982 (aération des logements)</a> ·
+<a href="https://www.bruit.fr/?catid=80&amp;id=18416:isoler-son-logement-du-bruit&amp;view=article">CidB, isoler son logement du bruit</a>.</p>
+<p>BâtiVrai — version pilote du 01/11/2026.</p>
+</footer>
+</div>
+
+<script>
+"use strict";
+// Prix relevé et daté (docs/bativrai/kit_diffusion/CHUT01_v2_VERIFICATION_FAITS.md). Ne jamais afficher un prix non relevé.
+var PRIX_JOINT = {texte: "environ 8 à 11 € le rouleau de 6 m", releve: "prix relevés chez Castorama le 29/10/2026, hors livraison ; variables selon le magasin et la date"};
+var LIENS = {
+  guide: "https://payhip.com/b/3YpCh",   // [PDF 4 pages] La télé à travers la porte — gratuit, e-mail demandé par Payhip
+  livre: "https://payhip.com/b/WB5m8"    // [PDF 26 pages] Le Silence retrouvé — 9 €
+};
+
+function plan(r) {
+  // Fonction pure : réponses -> plan. Testée par CONTROLE.cjs.
+  var p = {gratuit: [], achat: [], pro: [], stop: [], chapitres: []};
+  p.gratuit.push("Fais le test BâtiVrai : même extrait parlé, même volume, toujours la même place dans la pièce. Écoute près du cadre de la porte, puis près de la cloison et des angles. Note où les mots sont les plus nets.");
+  p.gratuit.push("Change UNE seule chose (casque ou volume plus bas), puis reviens à la situation de départ. Note ce qui change.");
+  p.stop.push("Ne bouche pas l'espace sous la porte : il sert souvent à faire circuler l'air entre les pièces (ventilation). Pas de boudin, pas de bas de porte collé.");
+  p.stop.push("Ne colle aucun matériau et ne démonte aucune prise pour « tester ».");
+
+  if (r.source === "palier") {
+    p.pro.push("Porte d'entrée sur le palier : c'est un cas à part (parties communes, sécurité, règles de l'immeuble). Avant tout achat, demande au syndic ou à un professionnel ce qui est autorisé.");
+    p.chapitres.push("chapitre 9 « Traiter les portes, les fenêtres et les passages d'air »");
+    p.chapitres.push("chapitre 2 « Comprendre comment le bruit arrive »");
+    return p;
+  }
+  if (r.jour === "cotes") {
+    p.achat.push({quoi: "Joint adhésif de porte, à poser sur les côtés et en haut du cadre seulement (pas en bas)", prix: PRIX_JOINT.texte, note: PRIX_JOINT.releve + ". Mesure le pourtour avant d'acheter. Un joint ne garantit pas le silence : le son passe aussi à travers la porte et les murs."});
+  } else if (r.jour === "dessous") {
+    p.gratuit.push("Seulement un jour en bas : c'est souvent voulu, pour l'air. Ta piste se trouve plutôt dans la porte elle-même ou dans la cloison.");
+  } else {
+    p.gratuit.push("Aucun jour visible : la porte ferme bien. Si tu entends encore les mots, regarde plutôt du côté de la cloison et des jonctions.");
+    p.chapitres.push("chapitre 6 « Traiter les murs et les cloisons »");
+  }
+  if (r.porte === "creuse") {
+    p.pro.push("Une porte creuse freine peu le son. Si ton test montre que la porte est le passage principal, demande un devis pour un bloc-porte complet (porte + cadre + joints + pose), en précisant qu'il faut garder le passage d'air.");
+  } else if (r.porte === "vitree") {
+    p.pro.push("Une partie vitrée peut être un point faible. Si ton test le confirme, demande à un professionnel quelle porte ou quel vitrage convient, en gardant le passage d'air.");
+  } else if (r.porte === "nsp") {
+    p.gratuit.push("Toque doucement au milieu de la porte, puis sur le mur à côté : la différence te dira si la porte est légère (creuse) ou lourde (pleine).");
+  }
+  if (r.source === "nsp") {
+    p.gratuit.push("Tiens un petit carnet 3 jours : heure, type de bruit (voix, télé, pas), pièce où tu l'entends. C'est la base pour trouver d'où il vient.");
+    p.chapitres.push("chapitre 2 « Comprendre comment le bruit arrive »");
+  }
+  p.chapitres.unshift("chapitre 12, cas « La télévision du salon s'entend dans la chambre »");
+  p.chapitres.push("chapitre 9 « Traiter les portes, les fenêtres et les passages d'air »");
+  return p;
+}
+
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});}
+function li(a){return a.map(function(x){return "<li>"+esc(x)+"</li>";}).join("");}
+
+function texteListe(p){
+  var t = ["MON PLAN BâtiVrai — porte et bruit", "", "Gratuit, tout de suite :"].concat(p.gratuit.map(function(x){return "- "+x;}));
+  if (p.achat.length) { t.push("", "À acheter seulement si le test le confirme :"); p.achat.forEach(function(a){t.push("- "+a.quoi+" : "+a.prix+" ("+a.note+")");}); }
+  if (p.pro.length) { t.push("", "À voir avec un professionnel :"); p.pro.forEach(function(x){t.push("- "+x);}); }
+  t.push("", "À ne pas faire :"); p.stop.forEach(function(x){t.push("- "+x);});
+  t.push("", "Question à poser au professionnel : « Les paroles sont surtout audibles ici, dans ces conditions. Quel trajet faut-il vérifier avant de choisir une solution ? »");
+  return t.join("\n");
+}
+
+function afficher(p){
+  var h = "";
+  h += '<div class="bloc free"><h2>1. Gratuit, tout de suite</h2><ol>'+li(p.gratuit)+'</ol></div>';
+  if (p.achat.length) {
+    h += '<div class="bloc buy"><h2>2. Ta liste d\'achat (seulement si le test le confirme)</h2><ul>';
+    p.achat.forEach(function(a){ h += "<li>"+esc(a.quoi)+" — <span class=prix>"+esc(a.prix)+"</span><br><span class=small>"+esc(a.note)+"</span></li>"; });
+    h += "</ul></div>";
+  } else {
+    h += '<div class="bloc buy"><h2>2. Ta liste d\'achat</h2><p>Rien à acheter pour l\'instant : commence par le test gratuit. Un achat sans savoir d\'où vient le bruit, c\'est souvent de l\'argent perdu.</p></div>';
+  }
+  if (p.pro.length) h += '<div class="bloc"><h2>3. À voir avec un professionnel</h2><ul>'+li(p.pro)+'</ul><p class=small>Question à lui poser : « Les paroles sont surtout audibles ici, dans ces conditions. Quel trajet faut-il vérifier avant de choisir une solution ? »</p></div>';
+  h += '<div class="bloc stop"><h2>À ne surtout pas faire</h2><ul>'+li(p.stop)+'</ul></div>';
+  h += '<div class="bloc mail"><h2>Reçois le guide gratuit par e-mail</h2><p>[PDF 4 pages] <b>La télé à travers la porte</b> : le test pas à pas, avec dessins. Gratuit, il te suffit de donner ton e-mail.</p>'
+     + '<a class="btn yellow" id="lienGuide" href="'+LIENS.guide+'" target="_blank" rel="noopener">Recevoir le guide gratuit</a></div>';
+  h += '<div class="bloc"><h2>Pour aller plus loin</h2><p>Le livre <b>Le Silence retrouvé</b> (26 pages, 9 €) traite ton cas : '+esc(p.chapitres.join(" ; "))+'.</p>'
+     + '<a class="btn light" id="lienLivre" href="'+LIENS.livre+'" target="_blank" rel="noopener">Voir le livre</a></div>';
+  h += '<div class="row"><button class="btn light" type="button" id="copier">Copier mon plan</button><button class="btn light" type="button" onclick="window.print()">Imprimer</button><button class="btn light" type="button" id="refaire">Recommencer</button></div><p class="small" id="copie" role="status"></p>';
+  var s = document.getElementById("resultat"); s.innerHTML = h; s.hidden = false; s.scrollIntoView({behavior:"smooth"});
+  document.getElementById("copier").onclick = function(){
+    var t = texteListe(p), m = document.getElementById("copie");
+    if (navigator.clipboard) navigator.clipboard.writeText(t).then(function(){m.textContent="Plan copié : colle-le dans tes notes ou un message.";},function(){m.textContent="Copie impossible ici : utilise Imprimer.";});
+    else m.textContent = "Copie impossible ici : utilise Imprimer.";
+  };
+  document.getElementById("refaire").onclick = function(){ document.getElementById("f").reset(); s.hidden = true; s.innerHTML = ""; window.scrollTo(0,0); };
+}
+
+if (typeof document !== "undefined") {
+  var f = document.getElementById("f");
+  f.addEventListener("change", function(){ var s=document.getElementById("resultat"); if(!s.hidden){s.hidden=true;s.innerHTML="";} });
+  f.addEventListener("submit", function(e){
+    e.preventDefault();
+    var r = {porte: (f.porte.value||""), jour: (f.jour.value||""), source: (f.source.value||"")};
+    var manque = [r.porte?null:"1", r.jour?null:"2", r.source?null:"3"].filter(Boolean);
+    document.getElementById("err").textContent = manque.length ? "Réponds à la question " + manque.join(", ") + "." : "";
+    if (!manque.length) afficher(plan(r));
+  });
+}
+if (typeof module !== "undefined") module.exports = {plan: plan, texteListe: texteListe, LIENS: LIENS};
+</script>
+</body>
+</html>
